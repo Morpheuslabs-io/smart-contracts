@@ -1,4 +1,4 @@
-pragma solidity ^0.4.12;
+pragma solidity ^0.4.17;
 
 /**
  * @title Ownable
@@ -314,8 +314,8 @@ contract MITx_TokenSale is Ownable {
   address public cs;
 
 
-  // switch on/off the authorisation , default: false
-  bool    public freeForAll = false;
+  // switch on/off the authorisation , default: true
+  bool    public freeForAll = true;
 
   mapping (address => bool) public authorised; // just to annoy the heck out of americans
 
@@ -345,7 +345,7 @@ contract MITx_TokenSale is Ownable {
   function setTier() internal {
  
     if (now <= tier1Timestamp) {  // during 1th period they get 50% bonus
-      rate = 12000;
+      rate = 8000;
       minContribution = 1 ether;
       maxContribution = 1000000 ether;
     } else if (now <= tier2Timestamp) { // during 2th period they get 35% bonus
@@ -423,6 +423,19 @@ contract MITx_TokenSale is Ownable {
   */
   function setCS(address newCS) onlyOwner public {
     cs = newCS;
+  }
+
+   /**
+  * @dev set a freeForAll to true ( in case you leave to anybody to send ethers)
+  */
+  function switchONfreeForAll() onlyCSorOwner public {
+    freeForAll = true;
+  }
+   /**
+  * @dev set a freeForAll to false ( in case you need to authorise the acconts)
+  */
+  function switchOFFfreeForAll() onlyCSorOwner public {
+    freeForAll = false;
   }
 
   function placeTokens(address beneficiary, uint256 _tokens) onlyCS public {
