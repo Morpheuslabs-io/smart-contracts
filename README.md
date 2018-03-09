@@ -45,4 +45,6 @@ Opening time:
 * call `startTrading()` on the TOKEN-contract
 
 
+## Others
 
+In addition, this repo also contains sample smart contracts that can be used for reference for smart contract development. We will add other smart contracts that we think worth to share.
