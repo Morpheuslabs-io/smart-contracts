@@ -1,6 +1,6 @@
 This repository contains MITx token sales smart contract and the audit report.
 
-The sample smart contracts in the samples folder are used for references for those who want to learn smart contract development.
+The sample smart contracts in the samples folder are used for references and learning purpose for those who may want to learn smart contract development.
 
 # MITx-TokenSale
 
